@@ -8,21 +8,13 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.era.learning.R
+import com.era.learning.`interface-service`.OnMenuItemClickListener
 import com.era.learning.model.MenuModel
 
-class MenuAdapter(var list:ArrayList<MenuModel>,var menuItemInit:OnMenuItemClickListener): RecyclerView.Adapter<MenuAdapter.ViewHolder>() {
 
 
-    lateinit var listener: OnMenuItemClickListener
+class MenuAdapter(var list:ArrayList<MenuModel>,var listener:OnMenuItemClickListener): RecyclerView.Adapter<MenuAdapter.ViewHolder>() {
 
-    interface OnMenuItemClickListener {
-        fun onMenuItemClick(item:MenuModel)
-    }
-
-    init {
-        listener = menuItemInit
-        notifyDataSetChanged()
-    }
 
     // Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -43,6 +35,8 @@ class MenuAdapter(var list:ArrayList<MenuModel>,var menuItemInit:OnMenuItemClick
         holder.tvMenuName.setText(menu.desc)
         holder.itemView.setOnClickListener {
             listener.onMenuItemClick(menu)
+
+
         }
 
     }
