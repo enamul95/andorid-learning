@@ -15,9 +15,13 @@ class BroardCastReceiverImageRecive : AppCompatActivity() {
         setContentView(R.layout.activity_board_cast_receiver)
 
         /**
+         * Broadcast Receivers can send or receive messages from other applications or from the system itself.
+         *
          * broadcast Receiver is some thing call back that generate by system
          * like alarm, battery low generate call back
-         * Four broadcast: Normal Board cast
+         *
+         * 1-Manifest-declared receivers(Statically)
+          2-Context-registered receivers(Dynamically)
          * */
 
         /**

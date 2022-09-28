@@ -14,28 +14,45 @@
         android:theme="@style/Theme.Andoridlearning"
         tools:targetApi="31">
         <activity
+            android:name=".view.broadcastReciver.BroadCastReciverBateryCharging"
+            android:exported="true">
+
+        </activity>
+
+
+
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".view.broadcastReciver.BroardCastReceiverImageRecive"
             android:exported="true">
             <intent-filter>
-                <!--Begin Static Broardcast reciver to receive image from any other sectio of app-->
-                <action android:name="android.intent.action.SEND"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data android:mimeType="image/*"/>
-                <!--End Static Broardcast reciver to receive image from any other sectio of app-->
+
+                <!-- Begin Static Broardcast reciver to receive image from any other sectio of app -->
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="image/*" />
+                <!-- End Static Broardcast reciver to receive image from any other sectio of app -->
 
             </intent-filter>
         </activity>
 
-
+        <receiver android:name=".view.broadcastReciver.MyBroadcastReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.INPUT_METHOD_CHANGED"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
