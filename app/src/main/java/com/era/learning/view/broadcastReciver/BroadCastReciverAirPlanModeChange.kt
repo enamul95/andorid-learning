@@ -7,7 +7,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.era.learning.R
 
-class BroadCastReciverBateryCharging : AppCompatActivity() {
+class BroadCastReciverAirPlanModeChange : AppCompatActivity() {
 
     private  lateinit var myReceiver:MyBroadcastReceiver
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,10 +18,15 @@ class BroadCastReciverBateryCharging : AppCompatActivity() {
 
         myReceiver = MyBroadcastReceiver()
 
-        val filter = IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION).apply {
-            addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED)
-        }
-        registerReceiver(myReceiver, filter)
+//        val filter = IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION).apply {
+//            addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED)
+//        }
+
+
+    IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED).also {
+        registerReceiver(myReceiver,it)
+    }
+        //registerReceiver(myReceiver, filter)
 
 
 
@@ -31,5 +36,7 @@ class BroadCastReciverBateryCharging : AppCompatActivity() {
         unregisterReceiver(myReceiver);
         super.onPause()
     }
+
+
 
 }

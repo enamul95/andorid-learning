@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.era.learning.`interface-service`.OnMenuItemClickListener
 import com.era.learning.adater.MenuAdapter
 import com.era.learning.model.MenuModel
-import com.era.learning.view.broadcastReciver.BroadCastReciverBateryCharging
+import com.era.learning.view.broadcastReciver.BroadCastReciverAirPlanModeChange
 import com.era.learning.view.broadcastReciver.BroardCastReceiverImageRecive
 
 class MainActivity : AppCompatActivity(), OnMenuItemClickListener {
@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity(), OnMenuItemClickListener {
     private fun populateMenuList(){
         menuList.clear()
         menuList.add(MenuModel("Board Cast Receiver","BCR"))
-        menuList.add(MenuModel("Board Cast Battary","BCB"))
+        menuList.add(MenuModel("Board Cast AireMode","BCA"))
         menuList.add(MenuModel("Service","SERVICE"))
         menuList.add(MenuModel("Content Provider","CON"))
         menuList.add(MenuModel("Intent Filter","IF"))
@@ -52,12 +52,8 @@ class MainActivity : AppCompatActivity(), OnMenuItemClickListener {
             startActivity(intent)
         }
 
-        if("BCB" == item.code){
-            val intent = Intent(this, BroadCastReciverBateryCharging::class.java).also { intent ->
-                intent.setAction("com.example.broadcast.MY_NOTIFICATION")
-                intent.putExtra("data", "Nothing to see here, move along.")
-
-            }
+        if("BCA" == item.code){
+            val intent = Intent(this, BroadCastReciverAirPlanModeChange::class.java)
             startActivity(intent)
         }
 

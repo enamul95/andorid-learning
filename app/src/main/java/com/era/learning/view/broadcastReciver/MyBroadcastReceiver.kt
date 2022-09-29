@@ -13,6 +13,15 @@ class MyBroadcastReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
 
+
+        val  isAirplanMode = intent.getBooleanExtra("state",false)?:return
+
+        if (isAirplanMode){
+            Toast.makeText(context, "Aire Plane Mode is Enable.", Toast.LENGTH_LONG).show()
+        }else{
+            Toast.makeText(context, "Aire Plane Mode is disable.", Toast.LENGTH_LONG).show()
+        }
+/*
         StringBuilder().apply {
             append("Action: ${intent.action} \n")
             append("URI: ${intent.toUri(Intent.URI_INTENT_SCHEME)} \n")
@@ -22,6 +31,7 @@ class MyBroadcastReceiver : BroadcastReceiver() {
 
                 }
         }
+        */
 
     }
 
