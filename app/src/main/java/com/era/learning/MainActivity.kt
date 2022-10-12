@@ -10,10 +10,12 @@ import com.era.learning.adater.MenuAdapter
 import com.era.learning.model.MenuModel
 import com.era.learning.view.broadcastReciver.BroadCastReciverAirPlanModeChange
 import com.era.learning.view.broadcastReciver.BroardCastReceiverImageRecive
+import com.era.learning.view.intent.PendingIntentExample
+import com.era.learning.view.service.ServiceActivity
 
 class MainActivity : AppCompatActivity(), OnMenuItemClickListener {
 
-    private lateinit var rcycleView:RecyclerView
+    private lateinit var rcycleView: RecyclerView
 
     val menuList = ArrayList<MenuModel>();
 
@@ -30,16 +32,17 @@ class MainActivity : AppCompatActivity(), OnMenuItemClickListener {
     }
 
 
-    private fun populateMenuList(){
+    private fun populateMenuList() {
         menuList.clear()
-        menuList.add(MenuModel("Board Cast Receiver","BCR"))
-        menuList.add(MenuModel("Board Cast AireMode","BCA"))
-        menuList.add(MenuModel("Service","SERVICE"))
-        menuList.add(MenuModel("Content Provider","CON"))
-        menuList.add(MenuModel("Intent Filter","IF"))
+        menuList.add(MenuModel("Board Cast Receiver", "BCR"))
+        menuList.add(MenuModel("Board Cast AireMode", "BCA"))
+        menuList.add(MenuModel("Pending Intent", "PI"))
+        menuList.add(MenuModel("Service", "SERVICE"))
+        menuList.add(MenuModel("Content Provider", "CON"))
+        menuList.add(MenuModel("Intent Filter", "IF"))
 
 
-        val menuAdapter = MenuAdapter(menuList,this)
+        val menuAdapter = MenuAdapter(menuList, this)
         rcycleView.layoutManager = LinearLayoutManager(rcycleView.context)
         rcycleView.adapter = menuAdapter
     }
@@ -47,13 +50,22 @@ class MainActivity : AppCompatActivity(), OnMenuItemClickListener {
     //Interface implementation
     override fun onMenuItemClick(item: MenuModel) {
 
-        if("BCR" == item.code){
-           val intent = Intent(this, BroardCastReceiverImageRecive::class.java)
+        if ("BCR" == item.code) {
+            val intent = Intent(this, BroardCastReceiverImageRecive::class.java)
             startActivity(intent)
         }
 
-        if("BCA" == item.code){
+        if ("BCA" == item.code) {
             val intent = Intent(this, BroadCastReciverAirPlanModeChange::class.java)
+            startActivity(intent)
+        }
+
+        if ("PI" == item.code) {
+            val intent = Intent(this, PendingIntentExample::class.java)
+            startActivity(intent)
+        }
+        if ("SERVICE" == item.code) {
+            val intent = Intent(this, ServiceActivity::class.java)
             startActivity(intent)
         }
 

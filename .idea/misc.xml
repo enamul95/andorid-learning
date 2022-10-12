@@ -6,6 +6,8 @@
         <entry key="app/src/main/res/layout/activity_batery_charging.xml" value="0.17552083333333332" />
         <entry key="app/src/main/res/layout/activity_board_cast_receiver.xml" value="0.17552083333333332" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.16145833333333334" />
+        <entry key="app/src/main/res/layout/activity_pending_intent.xml" value="0.16145833333333334" />
+        <entry key="app/src/main/res/layout/activity_service.xml" value="0.17552083333333332" />
         <entry key="app/src/main/res/layout/row_menu.xml" value="0.17552083333333332" />
       </map>
     </option>
