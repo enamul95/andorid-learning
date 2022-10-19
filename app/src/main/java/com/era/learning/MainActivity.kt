@@ -10,6 +10,7 @@ import com.era.learning.adater.MenuAdapter
 import com.era.learning.model.MenuModel
 import com.era.learning.view.broadcastReciver.BroadCastReciverAirPlanModeChange
 import com.era.learning.view.broadcastReciver.BroardCastReceiverImageRecive
+import com.era.learning.view.content_provider.ContentProviderActivity
 import com.era.learning.view.intent.PendingIntentExample
 import com.era.learning.view.service.ServiceActivity
 
@@ -38,7 +39,7 @@ class MainActivity : AppCompatActivity(), OnMenuItemClickListener {
         menuList.add(MenuModel("Board Cast AireMode", "BCA"))
         menuList.add(MenuModel("Pending Intent", "PI"))
         menuList.add(MenuModel("Service", "SERVICE"))
-        menuList.add(MenuModel("Content Provider", "CON"))
+        menuList.add(MenuModel("Content Provider", "CP"))
         menuList.add(MenuModel("Intent Filter", "IF"))
 
 
@@ -66,6 +67,11 @@ class MainActivity : AppCompatActivity(), OnMenuItemClickListener {
         }
         if ("SERVICE" == item.code) {
             val intent = Intent(this, ServiceActivity::class.java)
+            startActivity(intent)
+        }
+
+        if ("CP" == item.code) {
+            val intent = Intent(this, ContentProviderActivity::class.java)
             startActivity(intent)
         }
 

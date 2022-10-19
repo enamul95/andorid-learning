@@ -31,7 +31,7 @@ class MenuAdapter(var list:ArrayList<MenuModel>,var listener:OnMenuItemClickList
         //Get element from  dataset at this position and replace the
         // contents of the view with that element
         val menu = list[position]
-        Log.e("desc-->",menu.desc.toString())
+       // Log.e("desc-->",menu.desc.toString())
         holder.tvMenuName.setText(menu.desc)
         holder.itemView.setOnClickListener {
             listener.onMenuItemClick(menu)
