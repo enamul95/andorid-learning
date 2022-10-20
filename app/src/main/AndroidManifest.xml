@@ -17,8 +17,28 @@
         android:theme="@style/Theme.Andoridlearning"
         tools:targetApi="31">
         <activity
+            android:name=".intent.IntentFilter"
+            android:exported="true">
+            <!--SEND INTENT FILTER-->
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
+
+            <!--VIEW INTENT FILTER-->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+            </intent-filter>
+
+        </activity>
+        <activity
             android:name=".view.content_provider.ContentProviderActivity"
-            android:exported="true" />
+            android:exported="true"
+            tools:ignore="Instantiatable" />
         <activity
             android:name=".view.service.ServiceActivity"
             android:exported="true" />

@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.era.learning.`interface-service`.OnMenuItemClickListener
 import com.era.learning.adater.MenuAdapter
+import com.era.learning.intent.IntentFilter
 import com.era.learning.model.MenuModel
 import com.era.learning.view.broadcastReciver.BroadCastReciverAirPlanModeChange
 import com.era.learning.view.broadcastReciver.BroardCastReceiverImageRecive
@@ -72,6 +73,11 @@ class MainActivity : AppCompatActivity(), OnMenuItemClickListener {
 
         if ("CP" == item.code) {
             val intent = Intent(this, ContentProviderActivity::class.java)
+            startActivity(intent)
+        }
+
+        if ("IF" == item.code) {
+            val intent = Intent(this, IntentFilter::class.java)
             startActivity(intent)
         }
 
